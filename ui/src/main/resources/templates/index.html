@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>MV Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.gradient.min.css"/>
+</head>
+
+<body>
+
+<div class="uk-grid">
+    <div class="uk-width-1-5"></div>
+    <div class="uk-width-3-5">
+        <h1>MV Test</h1>
+        <p>Logged in as: <span th:text="${#httpServletRequest.remoteUser}">demo</span></p>
+
+
+        <form th:action="@{/update}" class="uk-panel uk-panel-box uk-form-stacked" method="post">
+    		<div class="uk-margin">
+		        <label class="uk-form-label">Name</label>
+            	<input class="uk-form-small" type="text" name="name" th:value="${userData.name}" placeholder="name" />
+            </div>
+    		<div class="uk-margin">
+		        <label class="uk-form-label">Username</label>
+    	        <input class="uk-form-small" type="text" disabled="disabled" th:value="${userData.userName}"  />
+            </div>
+    		<div class="uk-margin">
+		        <label class="uk-form-label">Email</label>
+	            <input class="uk-form-small" type="text" name="email" th:value="${userData.email}" placeholder="email"/>
+            </div>
+            
+            <input type="hidden" name="userName" th:value="${userData.userName}"  />
+
+            
+            <button class="uk-button uk-button-primary uk-button-large">Update</button>
+        </form>
+    </div>
+    <div class="uk-width-1-5"></div>
+</div>
+</body>
+</html>
